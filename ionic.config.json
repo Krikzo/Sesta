@@ -1,0 +1,7 @@
+{
+  "name": "siesta",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
