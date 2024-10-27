@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="true">
+
+  <div class="background" >
+
+    <ion-card class="contenedor">
+      <ion-card-header>
+        <ion-card-title>Card Title</ion-card-title>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content class="content">
+       
+        <form (ngSubmit)="onSubmit()" [formGroup]="registrationForm">
+          <ion-item>
+            <ion-label position="floating" class="label">Nombre</ion-label>
+            <ion-input type="text" formControlName="nombre" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Apellido</ion-label>
+            <ion-input type="text" formControlName="apellido" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Correo Electrónico</ion-label>
+            <ion-input type="email" formControlName="email" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" formControlName="password" required maxlength="12"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Confirmar Contraseña</ion-label>
+            <ion-input type="password" formControlName="confirmPassword" required maxlength="12"></ion-input>
+          </ion-item>
+          <ion-button expand="block" type="submit" [disabled]="!registrationForm.valid">Registrar</ion-button>
+        </form>
+
+      </ion-card-content>
+    
+
+    </ion-card>
+
+  </div>
+
+</ion-content>
