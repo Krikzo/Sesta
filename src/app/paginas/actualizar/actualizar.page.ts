@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService, Usuario } from '../../servicios/usuario.service';
 import { AlertController } from '@ionic/angular';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-actualizar',
@@ -11,6 +12,7 @@ export class ActualizarPage implements OnInit {
   usuarios: Usuario[] = [];
 
   constructor(
+    private router: Router,
     private usuarioService: UsuarioService,
     private alertController: AlertController
   ) { }
@@ -77,4 +79,5 @@ export class ActualizarPage implements OnInit {
     });
     await alert.present();
   }
+
 }

@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Actualizar Usuarios</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu" text="Atrás"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -13,6 +16,9 @@
         <p>{{ usuario.email }}</p>
       </ion-label>
       <ion-button slot="end" (click)="actualizarUsuario(usuario)">Actualizar</ion-button>
+
     </ion-item>
   </ion-list>
 </ion-content>
+
+

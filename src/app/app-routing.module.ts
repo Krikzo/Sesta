@@ -27,6 +27,14 @@ const routes: Routes = [
     path: 'actualizar',
     loadChildren: () => import('./paginas/actualizar/actualizar.module').then( m => m.ActualizarPageModule)
   },
+  {
+    path: 'eliminar',
+    loadChildren: () => import('./paginas/eliminar/eliminar.module').then( m => m.EliminarPageModule)
+  },
+  {
+    path: 'agregar',
+    loadChildren: () => import('./paginas/agregar/agregar.module').then( m => m.AgregarPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,20 +1,6 @@
 {
   "users": [
     {
-      "id": "5",
-      "nombre": "franco",
-      "apellido": "saez",
-      "email": "saez.f2000@gmail.com",
-      "password": "cuenta.2024"
-    },
-    {
-      "id": "6",
-      "nombre": "franco",
-      "apellido": "saez",
-      "email": "saez.f2000@gmail.com",
-      "password": "cuenta.2024"
-    },
-    {
       "id": "7",
       "nombre": "franco",
       "apellido": "saez",
