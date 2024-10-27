@@ -61,6 +61,9 @@ export class UsuarioService {
   buscarUsuariosPorNombre(nombre: string): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(`${this.apiUrl}?nombre_like=${nombre}`);
   }
-
+  
+  agregarUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(this.apiUrl, usuario);
+  }
 }
 
