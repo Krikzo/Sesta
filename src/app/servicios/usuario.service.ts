@@ -15,7 +15,7 @@ export interface Usuario {
   providedIn: 'root'
 })
 export class UsuarioService {
-  private apiUrl = 'http://localhost:3000/users';
+  private apiUrl = 'http://localhost:3000/users'; // en este caso uso la local host que por lo que entendi no puede seguir siendo asi para el uso del telefono 
   private nextId = 1;
 
   constructor(private http: HttpClient) {
@@ -34,6 +34,10 @@ export class UsuarioService {
     );
   }
 
+
+
+
+  // aqui se empiezan a generar los metodos para el control de los usuarios
   registrarUsuario(userData: any): Observable<any> {
     userData.id = this.nextId++;
     return this.http.post(this.apiUrl, userData);

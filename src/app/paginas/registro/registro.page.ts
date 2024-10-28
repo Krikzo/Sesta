@@ -29,14 +29,9 @@ export class RegistroPage implements OnInit {
 
   ngOnInit() {}
 
-  passwordMatchValidator(form: FormGroup) {
-    const password = form.get('password');
-    const confirmPassword = form.get('confirmPassword');
-    return password && confirmPassword && password.value === confirmPassword.value
-      ? null : { mismatch: true };
-  }
 
-  async onSubmit() {
+
+  async onSubmit() {   //al precionar el boton se registra el usuario , tomando lso datos y enviandolos al bdd json server
     if (this.registrationForm.valid) {
       const userData = this.registrationForm.value;
       delete userData.confirmPassword;
@@ -56,7 +51,12 @@ export class RegistroPage implements OnInit {
       await this.presentToast('Por favor, complete todos los campos correctamente.', 'warning');
     }
   }
-
+  passwordMatchValidator(form: FormGroup) {
+    const password = form.get('password');
+    const confirmPassword = form.get('confirmPassword');
+    return password && confirmPassword && password.value === confirmPassword.value
+      ? null : { mismatch: true };
+  }
   async presentToast(message: string, color: string) {
     const toast = await this.toastController.create({
       message: message,

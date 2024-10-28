@@ -29,7 +29,7 @@ export class AgregarPage implements OnInit {
   }
 
   ngOnInit() {}
-
+  //este es el metodo para toamr la foto, en el pc toma fotos de lso archivos y no pude hacerlo funcionar desde el celular en estos 4 dias :S
   async tomarFoto() {
     try {
       const image = await Camera.getPhoto({
@@ -47,7 +47,7 @@ export class AgregarPage implements OnInit {
       this.presentAlert('Error', 'No se pudo tomar la foto');
     }
   }
-
+  //se realiza un post para la bdd de json server por el momento
   async guardarUsuario() {
     if (this.usuarioForm.valid && this.foto) {
       const usuarioData = {

@@ -1,0 +1,21 @@
+-------------------------- json server --------------------------
+npm install -g json-server
+   npm install --save-dev json-server
+    json-server --watch bd/db.json     
+
+--------------------------- capatiro ----------------------------
+
+Importante , instalar lo siguente para su funcionamiento 
+
+npm install @capacitor/camera
+
+----------------------------- 
+---------------------------.Android-----------
+ionic capacitor add android
+ionic build
+ionic capacitor sync android
+
+ionic capacitor open android
+-----------------SQLITE---------------------
+npm install cordova-sqlite-storage
+npm install @awesome-cordova-plugins/sqlite

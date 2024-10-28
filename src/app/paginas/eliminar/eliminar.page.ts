@@ -18,7 +18,7 @@ export class EliminarPage implements OnInit {
   ngOnInit() {
     this.cargarUsuarios();
   }
-
+  //get de usuarios
   cargarUsuarios() {
     this.usuarioService.getUsuarios().subscribe(
       (usuarios) => {
@@ -31,26 +31,8 @@ export class EliminarPage implements OnInit {
     );
   }
 
-  async confirmarEliminacion(usuario: Usuario) {
-    const alert = await this.alertController.create({
-      header: 'Confirmar eliminación',
-      message: `¿Estás seguro de que quieres eliminar a ${usuario.nombre} ${usuario.apellido}?`,
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel'
-        },
-        {
-          text: 'Eliminar',
-          handler: () => {
-            this.eliminarUsuario(usuario);
-          }
-        }
-      ]
-    });
-    await alert.present();
-  }
 
+  //metodo maestro de la pagina, el delete 
   eliminarUsuario(usuario: Usuario) {
     this.usuarioService.eliminarUsuario(usuario.id).subscribe(
       () => {
@@ -72,4 +54,26 @@ export class EliminarPage implements OnInit {
     });
     await alert.present();
   }
+
+    //el metodo importante de esta page es el delete, el cual elimina al usuario , este metodo solo es la confirmacion 
+    async confirmarEliminacion(usuario: Usuario) {
+      const alert = await this.alertController.create({
+        header: 'Confirmar eliminación',
+        message: `¿Estás seguro de que quieres eliminar a ${usuario.nombre} ${usuario.apellido}?`,
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel'
+          },
+          {
+            text: 'Eliminar',
+            handler: () => {
+              this.eliminarUsuario(usuario);
+            }
+          }
+        ]
+      });
+      await alert.present();
+    }
+  
 } 

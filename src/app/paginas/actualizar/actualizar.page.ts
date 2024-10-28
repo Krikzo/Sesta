@@ -20,7 +20,7 @@ export class ActualizarPage implements OnInit {
   ngOnInit() {
     this.cargarUsuarios();
   }
-
+  //se genera el get para la carga de usuarios
   cargarUsuarios() {
     this.usuarioService.getUsuarios().subscribe(
       (usuarios: Usuario[]) => {
@@ -31,7 +31,7 @@ export class ActualizarPage implements OnInit {
       }
     );
   }
-
+  //aqui se genera el put para la actualizacion de los mismos usuarios
   async actualizarUsuario(usuario: Usuario) {
     const alert = await this.alertController.create({
       header: 'Actualizar Usuario',

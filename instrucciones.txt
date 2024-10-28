@@ -1,0 +1,33 @@
+-------------------ionic -------------------
+Esto es para iniciar el proyecto
+
+1.ionic serve
+
+
+
+
+
+
+-------------------------------------------
+
+----------------json server ----------------
+Esto es para inciar la bdd
+
+ Importaciones 
+
+- en app.module.ts importe HttpClientModule
+
+    import { HttpClientModule } from '@angular/common/http';
+
+    dentro de imports agregue HttpClientModule
+
+
+
+1.json-server --watch bd/db.json --port 3000
+
+
+
+
+-------------------------------------------
+
+
