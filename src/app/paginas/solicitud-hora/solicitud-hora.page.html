@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'/menu'" (click)="goToMenu()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Solicitud de Hora</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="solicitudForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Nombre del Paciente</ion-label>
+      <ion-input formControlName="nombrePaciente" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">RUT del Paciente</ion-label>
+      <ion-input formControlName="rutPaciente" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Motivo de Urgencia</ion-label>
+      <ion-textarea formControlName="motivoUrgencia" rows="3"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Prioridad</ion-label>
+      <ion-select formControlName="prioridad">
+        <ion-select-option value="alta">Alta</ion-select-option>
+        <ion-select-option value="media">Media</ion-select-option>
+        <ion-select-option value="baja">Baja</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Selector de Fecha Corregido -->
+    <ion-item>
+      <ion-label>Fecha</ion-label>
+      <ion-input
+        type="date"
+        formControlName="fecha"
+        [min]="minDate.split('T')[0]">
+      </ion-input>
+    </ion-item>
+
+    <!-- Selector de Hora Corregido -->
+    <ion-item>
+      <ion-label>Hora</ion-label>
+      <ion-input
+        type="time"
+        formControlName="hora">
+      </ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" class="ion-margin-top">
+      Agendar Hora
+    </ion-button>
+  </form>
+</ion-content>

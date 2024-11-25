@@ -5,7 +5,6 @@
     </ion-toolbar>
   </ion-header>
   
-  <!-- Información del usuario -->
   <ion-content class="ion-padding" transparent>
     <ion-item *ngIf="usuario" class="user-info">
       <ion-avatar slot="start">
@@ -18,26 +17,43 @@
     </ion-item>
 
     <ion-list>
-      <ion-item routerLink="/menu" routerDirection="root">
+      
+      <ion-item routerLink="/menu" routerDirection="root" (click)="closeMenu()">
         <ion-icon name="home" slot="start"></ion-icon>
         <ion-label>Inicio</ion-label>
       </ion-item>
-      <ion-item routerLink="/actualizar" routerDirection="forward">
+
+      <ion-item routerLink="/actualizar" routerDirection="forward" (click)="closeMenu()">
         <ion-icon name="person" slot="start"></ion-icon>
         <ion-label>Actualizar Personal</ion-label>
       </ion-item>
-      <ion-item routerLink="/agregar" routerDirection="forward">
+
+      <ion-item routerLink="/agregar" routerDirection="forward" (click)="closeMenu()">
         <ion-icon name="add-outline" slot="start"></ion-icon>
         <ion-label>Agregar Personal</ion-label>
       </ion-item>
-      <ion-item routerLink="/eliminar" routerDirection="forward">
+
+      <ion-item routerLink="/eliminar" routerDirection="forward" (click)="closeMenu()">
         <ion-icon name="close-outline" slot="start"></ion-icon>
         <ion-label>Eliminar Personal</ion-label>
       </ion-item>
+
+      <ion-item routerLink="/solicitud-hora" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="calendar-outline" slot="start"></ion-icon>
+        <ion-label>Solicitud Hora</ion-label>
+      </ion-item>
+
+      <ion-item routerLink="/paciente" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="people-outline" slot="start"></ion-icon>
+        <ion-label>Pacientes</ion-label>
+      </ion-item>
+      
       <ion-item (click)="logout()">
         <ion-icon name="log-out" slot="start"></ion-icon>
         <ion-label>Cerrar Sesión</ion-label>
       </ion-item>
+
+     
     </ion-list>
   </ion-content>
 </ion-menu>
@@ -48,30 +64,12 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Bienvenido, {{ usuario?.nombre }} {{usuario?.apellido}}</ion-title><!-- Esto es para el navigationextra-->>
+      <ion-title>Bienvenido, {{ usuario?.nombre }} {{usuario?.apellido}}</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content class="ion-padding">
     <ion-router-outlet></ion-router-outlet>
-    <h1 class="titulo">Recomendaciones</h1>
-    <br>
-    <ion-card>
-      <img alt="Silhouette of mountains" src="../../../assets/images/img-menu.jpg" />
-      
-      <ion-card-header>
-        <ion-card-subtitle>Recomendaciones de uso</ion-card-subtitle>
-      </ion-card-header>
     
-      <ion-card-content>
-        Use el menu lateral para navegar entre las diferentes secciones de la app.
-      </ion-card-content>
-      <ion-card-content>
-        Recuerde no usar una contraseña sencilla, tampoco comparta su contraseña con los demas.
-      </ion-card-content>
-      <ion-card-content>
-        No comparta la informacion que existe en la app.
-      </ion-card-content>
-    </ion-card>
   </ion-content>
 </div>

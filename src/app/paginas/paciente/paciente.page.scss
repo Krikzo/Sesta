@@ -1,0 +1,17 @@
+// ... estilos existentes ...
+
+ion-searchbar {
+    --background: var(--ion-color-light);
+    --border-radius: 8px;
+    padding: 0 10px;
+    
+    &.focused {
+      --background: var(--ion-color-light-shade);
+    }
+  }
+  
+  .no-results {
+    text-align: center;
+    color: var(--ion-color-medium);
+    padding: 20px;
+  }

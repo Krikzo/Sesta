@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';//es para la cerrar sesion
+import { Router } from '@angular/router';
 import { Usuario } from '../../servicios/usuario.service';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +12,10 @@ export class MenuPage implements OnInit {
   pageTitle = 'Inicio';
   usuario: Usuario | null = null;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private menuCtrl: MenuController  // Agregar esta línea
+  ) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation && navigation.extras && navigation.extras.state) {
       this.usuario = navigation.extras.state['usuario'];
@@ -20,13 +24,16 @@ export class MenuPage implements OnInit {
 
   ngOnInit() {
     if (!this.usuario) {
-      // Si no hay datos de usuario, redirigir al login
       this.router.navigate(['/login']);
     }
   }
-  logout() {
-    //se agrega el logout
-    
+
+  async closeMenu() {  // Agregar este método
+    await this.menuCtrl.close();
+  }
+
+  async logout() {
+    await this.menuCtrl.close();  // Cerrar el menú antes de hacer logout
     localStorage.removeItem('authToken');
     this.router.navigate(['/login']);
   }

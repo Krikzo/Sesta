@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { AuthGuard } from '../guards/auth.guard';
 const routes: Routes = [
   {
     path: 'home',
@@ -35,6 +35,17 @@ const routes: Routes = [
     path: 'agregar',
     loadChildren: () => import('./paginas/agregar/agregar.module').then( m => m.AgregarPageModule)
   },
+  {
+    path: 'solicitud-hora',
+    loadChildren: () => import('./paginas/solicitud-hora/solicitud-hora.module').then(m => m.SolicitudHoraPageModule)
+    
+  },
+  {
+    path: 'paciente',
+    loadChildren: () => import('./paginas/paciente/paciente.module').then(m => m.PacientePageModule)
+ },
+
+
 ];
 
 @NgModule({

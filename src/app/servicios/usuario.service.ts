@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 
 export interface Usuario {
   id: number;
@@ -18,7 +20,7 @@ export class UsuarioService {
   private apiUrl = 'http://localhost:3000/users'; // en este caso uso la local host que por lo que entendi no puede seguir siendo asi para el uso del telefono 
   private nextId = 1;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.initializeNextId();
   }
 
@@ -69,5 +71,30 @@ export class UsuarioService {
   agregarUsuario(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(this.apiUrl, usuario);
   }
+
+  estaAutenticado(): boolean {
+    const token = localStorage.getItem('auth_token');
+    return !!token; // Retorna true si existe un token
+  }
+
+  cerrarSesion() {
+    localStorage.removeItem('auth_token');
+    localStorage.removeItem('usuario');
+    this.router.navigate(['/login']);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
 
