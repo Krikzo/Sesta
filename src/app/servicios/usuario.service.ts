@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
+import { environment } from '../../environments/environment'; 
 
 export interface Usuario {
   id: number;
@@ -17,7 +17,7 @@ export interface Usuario {
   providedIn: 'root'
 })
 export class UsuarioService {
-  private apiUrl = 'http://localhost:3000/users'; // en este caso uso la local host que por lo que entendi no puede seguir siendo asi para el uso del telefono 
+  private apiUrl = `${environment.apiUrl}/users`; 
   private nextId = 1;
 
   constructor(private http: HttpClient, private router: Router) {
@@ -36,10 +36,7 @@ export class UsuarioService {
     );
   }
 
-
-
-
-  // aqui se empiezan a generar los metodos para el control de los usuarios
+  // Métodos para el control de los usuarios
   registrarUsuario(userData: any): Observable<any> {
     userData.id = this.nextId++;
     return this.http.post(this.apiUrl, userData);
@@ -50,7 +47,6 @@ export class UsuarioService {
       map(users => users.length > 0 ? users[0] : null)
     );
   }
-
 
   getUsuarios(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.apiUrl);
@@ -82,19 +78,4 @@ export class UsuarioService {
     localStorage.removeItem('usuario');
     this.router.navigate(['/login']);
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-

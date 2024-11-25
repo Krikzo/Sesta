@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment'; // Importa el archivo de entorno
 
 export interface Solicitud {
   id?: number;
@@ -16,7 +17,7 @@ export interface Solicitud {
   providedIn: 'root'
 })
 export class SolicitudService {
-  private apiUrl = 'http://localhost:3000/solicitudes';
+  private apiUrl = `${environment.apiUrl}/solicitudes`; // Usa la URL del entorno
 
   constructor(private http: HttpClient) { }
 
