@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 })
 export class PacientePage implements OnInit {
   pacientes: Paciente[] = [];
-  pacientesFiltrados: Paciente[] = [];  // Nueva propiedad
+  pacientesFiltrados: Paciente[] = []; 
   citasPaciente: CitaMedica[] = [];
   pacienteSeleccionado: Paciente | null = null;
-  rutBusqueda: string = '';  // Nueva propiedad
+  rutBusqueda: string = '';  
 
   constructor(
     private pacienteService: PacienteService,
@@ -27,7 +27,7 @@ export class PacientePage implements OnInit {
     this.pacienteService.getPacientes().subscribe({
       next: (pacientes) => {
         this.pacientes = pacientes;
-        this.pacientesFiltrados = pacientes;  // Inicialmente muestra todos
+        this.pacientesFiltrados = pacientes;  
       },
       error: (error) => {
         console.error('Error al cargar pacientes:', error);
@@ -35,7 +35,7 @@ export class PacientePage implements OnInit {
     });
   }
 
-  // Nuevo método para buscar por RUT
+  
   buscarPorRut(event: any) {
     const rut = event.target.value.toLowerCase();
     this.rutBusqueda = rut;

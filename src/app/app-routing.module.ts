@@ -43,7 +43,13 @@ const routes: Routes = [
   {
     path: 'paciente',
     loadChildren: () => import('./paginas/paciente/paciente.module').then(m => m.PacientePageModule)
- },
+ },  {
+    path: 'contacto',
+    loadChildren: () => import('./paginas/contacto/contacto.module').then( m => m.ContactoPageModule)
+  },
+
+
+
 
 
 ];

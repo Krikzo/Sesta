@@ -6,7 +6,7 @@
     <ion-title>Pacientes</ion-title>
   </ion-toolbar>
   
-  <!-- Barra de búsqueda -->
+  
   <ion-toolbar>
     <ion-searchbar 
       placeholder="Buscar por RUT"
@@ -22,14 +22,14 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <!-- Lista de Pacientes -->
+      
       <ion-col size="12" size-md="6">
         <ion-list>
           <ion-list-header>
             <ion-label>Lista de Pacientes</ion-label>
           </ion-list-header>
 
-          <!-- Mensaje cuando no hay resultados -->
+          
           <ion-item *ngIf="pacientesFiltrados.length === 0" lines="none">
             <ion-label class="ion-text-center">
               No se encontraron pacientes con ese RUT
@@ -41,7 +41,7 @@
                     [class.selected]="pacienteSeleccionado?.id === paciente.id"
                     (click)="verCitasPaciente(paciente)">
             <ion-avatar slot="start">
-              <img src="assets/avatar-default.png" alt="avatar">
+              
             </ion-avatar>
             <ion-label>
               <h2>{{ paciente.nombre }} {{ paciente.apellido }}</h2>
@@ -52,7 +52,7 @@
         </ion-list>
       </ion-col>
 
-      <!-- Citas del Paciente -->
+      
       <ion-col size="12" size-md="6">
         <div *ngIf="pacienteSeleccionado">
           <ion-list>
